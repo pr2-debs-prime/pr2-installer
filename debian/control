@@ -1,0 +1,13 @@
+Source: pr2-installer
+Section: config
+Priority: extra
+Maintainer: Austin Hendrix <ahendrix@willowgarage.com>
+Build-Depends: debhelper (>= 5), config-package-dev (>= 4.5~)
+Standards-Version: 3.7.2
+
+Package: pr2-installer
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, dnsmasq, atftpd, syslinux, pr2-bios-bmc-images, python-pexpect, apache2, reprepro
+Description: Allows the basestation to install the pr2
+Provides: ${diverted-files}, pr2-basestation
+Conflicts: ${diverted-files}, apparmor

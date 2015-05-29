@@ -1,0 +1,149 @@
+
+# Load in our modified keyring
+d-i preseed/early_command string wget -O /tmp/keyring.deb http://10.68.0.6/pr2-packages/pool/main/u/ubuntu-keyring/ubuntu-keyring_2011.11.21.1-pr2.2_all.deb && udpkg -i /tmp/keyring.deb && anna-install network-console
+
+# Choose software to install:
+tasksel tasksel/first   multiselect     linux-server
+# Installation source
+# Note the value of mirror/country "enter information manually" This is an
+# actual choice in the mirror menu. Choosing this allows us to enter our
+# local repository information.
+d-i     mirror/country          string manual
+# hostname This is whatever HTTP server you have set up.
+d-i     mirror/http/hostname    string 10.68.0.6
+# This is the /ubuntu directory from the install CD copied (or linked)
+# under the webroot of your HTTP server
+d-i     mirror/http/directory   string /pr2-packages
+# Name your ubuntu version here
+d-i     mirror/suite            string precise
+# no proxy
+d-i     mirror/http/proxy       string
+
+
+d-i network-console/password           password willow
+d-i network-console/password-again     password willow
+#d-i preseed/early_command string anna-install network-console
+
+# Controls whether or not the hardware clock is set to UTC.
+d-i clock-setup/utc boolean true
+
+# You may set this to any valid setting for $TZ; see the contents of
+# /usr/share/zoneinfo/ for valid values.
+d-i time/zone string US/Pacific
+
+# Controls whether to use NTP to set the clock during the install
+d-i clock-setup/ntp boolean true
+# NTP server to use. The default is almost always fine here.
+d-i clock-setup/ntp-server string 10.68.0.6
+
+
+
+### Partitioning
+d-i partman-auto/disk string /dev/sda
+d-i partman-auto/method string regular
+
+# If one of the disks that are going to be automatically partitioned
+# contains an old LVM configuration, the user will normally receive a
+# warning. This can be preseeded away...
+d-i partman-lvm/device_remove_lvm boolean true
+# The same applies to pre-existing software RAID array:
+#d-i partman-md/device_remove_md boolean true
+# And the same goes for the confirmation to write the lvm partitions.
+#d-i partman-lvm/confirm boolean true
+#d-i partman-lvm/confirm_nooverwrite boolean true
+#d-i partman-auto-lvm/guided_size string 50%
+
+
+# If not, you can put an entire recipe into the preconfiguration file in one
+# (logical) line. This example creates a small /boot partition, suitable
+# swap, and uses the rest of the space for the root partition:
+d-i partman-auto/expert_recipe string                        \
+512 512 512 ext4                                             \
+   $primary{ }                                               \
+   $bootable{ }                                              \
+   method{ format }                                          \
+   format{ }                                                 \
+   use_filesystem{ }                                         \
+   filesystem{ ext4 }                                        \
+   mountpoint{ /boot } .                                     \
+                                                             \
+10000 100000 100000 ext4                                     \
+   method{ format }                                          \
+   format{ }                                                 \
+   use_filesystem{ }                                         \
+   filesystem{ ext4 }                                        \
+   mountpoint{ / } .                                         \
+                                                             \
+10000 200000 200000 ext4                                     \
+   method{ format }                                          \
+   format{ }                                                 \
+   use_filesystem{ }                                         \
+   filesystem{ ext4 }                                        \
+   mountpoint{ /home } .                                     \
+                                                             \
+2000 20000 20000 ext4                                        \
+   method{ format }                                          \
+   format{ }                                                 \
+   use_filesystem{ }                                         \
+   filesystem{ ext4 }                                        \
+   mountpoint{ /hwlog } .                                    \
+
+
+# This makes partman automatically partition without confirmation, provided
+# that you told it what to do using one of the methods above.
+d-i partman/confirm_write_new_label boolean true
+d-i partman/choose_partition select finish
+d-i partman/confirm boolean true
+
+### Controlling how partitions are mounted
+# The default is to mount by UUID, but you can also choose "traditional" to
+# use traditional device names, or "label" to try filesystem labels before
+# falling back to UUIDs.
+d-i partman/mount_style select traditional
+
+
+d-i partman-basicfilesystems/no_swap boolean false
+
+# The kernel image (meta) package to be installed; "none" can be used if no
+# kernel is to be installed.
+# d-i base-installer/kernel/image string none
+
+d-i passwd/root-login boolean true
+d-i passwd/root-password password willow
+d-i passwd/root-password-again password willow
+d-i passwd/make-user boolean false
+
+d-i user-setup/allow-password-weak boolean true
+
+d-i apt-setup/restricted boolean true
+d-i apt-setup/universe boolean true
+d-i apt-setup/backports boolean true
+
+d-i apt-setup/security_host string
+
+d-i apt-setup/local0/repository string \
+  http://10.68.0.6/pr2-packages precise main pr2 multiverse restricted universe partner
+
+hddtemp hddtemp/interface       string  127.0.0.1
+hddtemp hddtemp/daemon  boolean true
+hddtemp hddtemp/syslog  string  0
+hddtemp hddtemp/port    string  7634
+hddtemp hddtemp/SUID_bit        boolean false
+
+d-i pkgsel/update-policy select none
+d-i pkgsel/include string tasksel openssh-server build-essential
+
+d-i grub-installer/only_debian boolean true
+
+d-i finish-install/reboot_in_progress note
+
+# Preseeding for postfix
+postfix postfix/main_mailer_type select	Internet Site
+postfix postfix/mailname string robot
+
+# finish by installing the pr2 packages (dependent on grub which doesn't get
+#  installed until after pkgsel/include), then update apt sources
+d-i preseed/late_command string \
+	in-target apt-get install -y pr2-environment pr2-network pr2-kernel ; \
+	in-target sed -i.bak 's|deb http://10.68.0.6/pr2-packages precise main pr2 multiverse restricted universe partner||g;s|10.68.0.6/pr2-packages|aptproxy.willowgarage.com/us.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list ; \
+	in-target bash -c 'echo "/dev/removable1 /removable      ext4    defaults,users,nobootwait           0  2" >> /etc/fstab'

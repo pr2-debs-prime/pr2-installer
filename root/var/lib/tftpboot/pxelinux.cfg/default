@@ -1,0 +1,38 @@
+# pxelinux.cfg/default
+
+default menu.c32
+prompt 0
+timeout 100
+ontimeout hd
+
+menu title Pr2 Installer
+
+label hd
+    menu label hd : boot from hard drive
+    menu default
+    localboot 0
+
+label reboot
+    menu label reboot : reboot
+    kernel reboot.c32
+
+
+label biosbmc1
+    menu label BIOS/BMC RIGHT : Reflash BMC, Reflash BIOS and set BIOS options for C1
+    kernel memdisk
+    append initrd=pr2-reflash-biosbmc1.img
+
+label biosbmc2
+    menu label BIOS/BMC LEFT : Reflash BMC, Reflash BIOS and set BIOS options for C2
+    kernel memdisk
+    append initrd=pr2-reflash-biosbmc2.img
+
+label robot_precise64
+    menu label OS Install : wipe hard drive and install 64-bit precise for robot
+    kernel linux64
+    append interface=eth3 initrd=initrd64.gz auto url=http://10.68.0.6/robot_precise64.preseed locale=en_US.UTF-8 debian-installer/keymap=us netcfg/disable_autoconfig=true netcfg/disable_dhcp=true netcfg/get_hostname=c1 netcfg/get_domain=willowgarage.com netcfg/get_nameservers=10.68.0.6 netcfg/get_ipaddress=10.68.0.1 netcfg/get_netmask=255.255.255.0 netcfg/get_gateway=10.68.0.6 netcfg/confirm_static=true root=/dev/rd/0 numa=noacpi --
+
+label advanced
+    menu label Adanced Config : Go to advanced config sub-menu
+    kernel menu.c32
+    append pxelinux.cfg/advanced.menu

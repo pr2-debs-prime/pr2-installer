@@ -1,0 +1,8 @@
+Codename: precise
+Suite: precise
+Architectures: amd64 source
+Description: Precise (PR2 and Basestation debs)
+Components: main pr2 basestation multiverse restricted universe partner
+UDebComponents: main
+Update: pr2-release
+SignWith: 324C3C1E

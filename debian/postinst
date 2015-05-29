@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+#DEBHELPER#
+
+PKG=pr2-installer
+
+case "$1" in
+  configure)
+
+        mkdir -p /usr/lib/robot-install/keydir
+        gpg -q --homedir /usr/lib/robot-install/keydir --import /usr/lib/robot-install/pr2-packages.key || :
+        gpg -q --homedir /usr/lib/robot-install/keydir --import /usr/lib/robot-install/basestationpackages.gpg || :
+
+    ;;
+  
+  *)
+        echo "postinst called with unknown argument \`$1'" >&2
+        exit 0
+    ;;
+esac

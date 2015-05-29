@@ -1,0 +1,368 @@
+pr2-installer (0.5.43-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1279
+   - r1279: Continuing to stomp out ros.org references in repositories
+
+ -- Steve Okay <okay@willowgarage.com>  Wed, 16 Oct 2013 13:51:44 -0700
+
+pr2-installer (0.5.42-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1193
+   - r1193: Fix default OS install.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 09 Aug 2013 11:58:09 -0700
+
+pr2-installer (0.5.41-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1168
+   - r1168: Update installer to 0.6.1
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 25 Jun 2013 14:08:40 -0700
+
+pr2-installer (0.5.40-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1136
+   - r1136: Fix fstab after install.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 08 Mar 2013 15:20:27 -0800
+
+pr2-installer (0.5.39-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1131
+   - r1131: Fix PR2 preseed so it doesn't bother about grub.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 27 Feb 2013 15:42:58 -0800
+
+pr2-installer (0.5.38-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1113
+   - r1113: Update debhelper version.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 20 Feb 2013 03:51:17 -0800
+
+pr2-installer (0.5.37-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1106
+   - r1106: Remove old ROS distros and upgrade package architectures to 'all'.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 19 Feb 2013 06:23:09 -0800
+
+pr2-installer (0.5.36-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1023
+   - r1023: Update preseed file.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 05 Dec 2012 13:47:57 -0800
+
+pr2-installer (0.5.35-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1005
+   - r1005: Remove LVM from preseed.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 04 Dec 2012 18:32:30 -0800
+
+pr2-installer (0.5.34-precise) stable; urgency=low
+
+  * Incrementing to SVN: r1002
+   - r1002: Installer updates.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 04 Dec 2012 17:30:11 -0800
+
+pr2-installer (0.5.33-precise) stable; urgency=low
+
+  * Incrementing to SVN: r999
+   - r999: Update to latest PR2 keyring
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 04 Dec 2012 15:57:17 -0800
+
+pr2-installer (0.5.32-precise) stable; urgency=low
+
+  * Incrementing to SVN: r910
+   - r894: pr2 installer updated for precise
+   - r910: fixed kernel command line to deal with changes in precise
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Thu, 02 Aug 2012 15:25:20 -0700
+
+pr2-installer (0.5.31-precise) stable; urgency=low
+
+  * Bump version
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Tue, 04 Dec 2012 14:53:26 -0800
+
+pr2-installer (0.5.30-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/linux
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+    - pr2-installer/root/usr/sbin/robot-install
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Mon, 30 Jul 2012 09:59:06 -0700
+
+pr2-installer (0.5.29-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/linux
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Tue, 24 Jul 2012 15:02:08 -0700
+
+pr2-installer (0.5.28-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Tue, 24 Jul 2012 14:17:05 -0700
+
+pr2-installer (0.5.27-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Mon, 23 Jul 2012 15:10:21 -0700
+
+pr2-installer (0.5.26-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/linux
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Mon, 23 Jul 2012 14:48:01 -0700
+
+pr2-installer (0.5.25-precise) stable; urgency=low
+
+  * Removed:
+    - pr2-installer/root/var/www/robot_lucid64.preseed
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/linux
+    - pr2-installer/root/var/lib/tftpboot/ubuntu/lucid64/initrd.gz
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Mon, 23 Jul 2012 13:19:04 -0700
+
+pr2-installer (0.5.24-precise) stable; urgency=low
+
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/robot_install
+    - pr2-installer/root/var/lib/tftpboot/pxelinux.cfg/default
+  * Unversioned:
+    - pr2-installer/root/var/www/robot_precise64.preseed
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Mon, 23 Jul 2012 11:41:31 -0700
+
+pr2-installer (0.5.23-precise) stable; urgency=low
+
+  * Changed:
+    - pr2-installer/root/var/www/pr2-packages/conf/updates
+    - pr2-installer/root/var/www/pr2-packages/conf/distributions
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Thu, 19 Jul 2012 16:12:33 -0700
+
+pr2-installer (0.5.22) stable; urgency=low
+
+  * Incrementing to SVN: r885
+   - r885: added precise support.
+
+ -- Michael Brindle <mbrindle@willowgarage.com>  Wed, 11 Jul 2012 16:26:21 -0700
+
+pr2-installer (0.5.20-precise) stable; urgency=low
+
+  * Incrementing to SVN: r879
+   - r879: Fix pr2-installer bug.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 29 Jun 2012 11:47:31 -0700
+
+pr2-installer (0.5.19-precise) stable; urgency=low
+
+  * Incrementing to SVN: r870
+   - r870: Update installer for 0.5.8 (Fuerte-precise)
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 09 May 2012 18:08:05 -0700
+
+pr2-installer (0.5.18-precise) stable; urgency=low
+
+  * Incrementing to SVN: r839
+   - r839: Update to 0.5.7 installer image.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 03 Feb 2012 11:10:21 -0800
+
+pr2-installer (0.5.17-precise) stable; urgency=low
+
+  * Incrementing to SVN: r829
+   - r829: Fix installer preseed file.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Fri, 16 Dec 2011 10:57:24 -0800
+
+pr2-installer (0.5.16-precise) stable; urgency=low
+
+  * Incrementing to SVN: r814
+   - r814: Update preseed script.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Mon, 07 Nov 2011 13:46:05 -0800
+
+pr2-installer (0.5.15-precise) stable; urgency=low
+
+  * Incrementing to SVN: r810
+   - r810: Update pr2-installer to release 0.5.6 for Electric.
+
+ -- Austin Hendrix <ahendrix@willowgarage.com>  Wed, 26 Oct 2011 15:41:05 -0700
+
+pr2-installer (0.5.14-precise) stable; urgency=low
+
+  * Incrementing to SVN: r690
+   - r690: Pull from 0.5.4 installer
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 10 Feb 2011 23:30:47 -0800
+
+pr2-installer (0.5.13-precise) stable; urgency=low
+
+  * Incrementing to SVN: r634
+   - r634: Pull from 0.5.3 repo
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Tue, 18 Jan 2011 15:18:35 -0800
+
+pr2-installer (0.5.12-precise) stable; urgency=low
+
+  * Incrementing to SVN: r571
+   - r571: Pointing the installer at 0.5.2
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 05 Jan 2011 10:19:58 -0800
+
+pr2-installer (0.5.11-precise) stable; urgency=low
+
+  * Incrementing to SVN: r547
+   - r547: The pr2-installer is not essential
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 23 Dec 2010 13:58:27 -0800
+
+pr2-installer (0.5.10-precise) stable; urgency=low
+
+  * Incrementing to SVN: r543
+   - r543: Install using pr2 component as well
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 23 Dec 2010 13:52:15 -0800
+
+pr2-installer (0.5.9-precise) stable; urgency=low
+
+  * Incrementing to SVN: r542
+   - r542: Installer pulls pr2 and basestation components
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 23 Dec 2010 12:04:02 -0800
+
+pr2-installer (0.5.8-precise) stable; urgency=low
+
+  * Incrementing to SVN: r531
+   - r531: Moving basestation-only debs to their own directory
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Thu, 23 Dec 2010 11:06:52 -0800
+
+pr2-installer (0.5.7-precise) stable; urgency=low
+
+  * Incrementing to SVN: r527
+   - r526: Allow for problems with gpg import
+   - r527: make gpg quieter
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 17:59:54 -0800
+
+pr2-installer (0.5.6-precise) stable; urgency=low
+
+  * Incrementing to SVN: r524
+   - r524: Simplifying basestation prompt options
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 17:56:14 -0800
+
+pr2-installer (0.5.5-precise) stable; urgency=low
+
+  * Incrementing to SVN: r522
+   - r522: Adding accomodations for basestation to sign with a key allowed by our keyring
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 16:47:44 -0800
+
+pr2-installer (0.5.4-precise) stable; urgency=low
+
+  * Incrementing to SVN: r519
+   - r519: Make keydir before tryign to import key
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 15:15:34 -0800
+
+pr2-installer (0.5.3-precise) stable; urgency=low
+
+  * Incrementing to SVN: r517
+   - r512: Adding pr2-packages public key
+   - r513: Get the pr2 installer to check the key when its fetching
+   - r517: Making pr2-environment conflict with apparmor
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Wed, 22 Dec 2010 15:05:35 -0800
+
+pr2-installer (0.5.2-precise) stable; urgency=low
+
+  * Incrementing to SVN: r497
+   - r497: Only pull in from release on cd-rom
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 20 Dec 2010 14:40:19 -0800
+
+pr2-installer (0.5.1-precise) stable; urgency=low
+
+  * Incrementing to SVN: r496
+   - r496: Getting package name right
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 20 Dec 2010 14:12:59 -0800
+
+pr2-installer (0.5.0-precise) stable; urgency=low
+
+  * Incrementing to SVN: r493
+   - r486: Creating pr2-installer package
+   - r487: Moving robot-install to pr2-installer
+   - r488: moving usr into root
+   - r491: Moving the installer stuff to new package
+   - r492: Updating install scripts
+   - r493: Adding pr2-packages to installer
+
+ -- Jeremy Leibs <leibs@willowgarage.com>  Mon, 20 Dec 2010 14:08:27 -0800
+

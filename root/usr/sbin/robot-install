@@ -1,0 +1,72 @@
+#!/usr/bin/env python
+
+
+import os
+import time
+import sys
+import subprocess
+import pexpect
+
+class InstallerLink(object):
+    def __init__(self):
+        os.symlink('/var/lib/tftpboot/pxelinux.cfg/robot_install','/var/lib/tftpboot/pxelinux.cfg/0A440001')
+    
+    def __del__(self):
+        os.unlink('/var/lib/tftpboot/pxelinux.cfg/0A440001')
+     
+if __name__ == '__main__':
+
+   if os.getuid() != 0:
+        print >> sys.stderr, "must be run as root"
+        sys.exit(1)
+
+   link = InstallerLink()
+
+   subprocess.check_call(['reprepro', '--gnupghome', '/usr/lib/robot-install/keydir', '-V', '-b', '/var/www/pr2-packages', '--noskipold', 'update'])
+   subprocess.check_call(['reprepro', '--gnupghome', '/usr/lib/robot-install/keydir', '-V', '-b', '/var/www/pr2-packages', 'export'])
+
+   file = open('/var/log/syslog')
+   file.seek(0,os.SEEK_END)
+
+# From: http://code.activestate.com/recipes/157035/
+   
+   print "Waiting for robot to netboot..."
+
+   while 1:
+       where = file.tell()
+       line = file.readline()
+       if not line:
+           time.sleep(1)
+           file.seek(where)
+       else:
+          if "Serving initrd64.gz to 10.68.0.1" in line:
+               print "Robot server has netbooted."
+               break
+
+   del link
+
+   print "Trying to connect to netconsole..."
+
+   waiting = True
+
+   while waiting:
+       try:
+           session = pexpect.spawn('ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null installer@10.68.0.1')
+           session.expect('password:')
+           session.sendline('willow')
+           # If we got this far, we're effectively done.  It may end nicely or not... seems to be nondeterministic
+           waiting = False
+           session.interact()
+           session.close()
+       except Exception:
+           session.close()
+           pass
+
+   # Terminal is inevitably foobar at this point.
+   # This seems to repeat things without doing a full clear
+   os.system('tput init')
+   os.system('reset')
+
+   # Clear out some space before printing...
+   print '\n'*10
+   print "Done with robot install.  The computer should have shut down."

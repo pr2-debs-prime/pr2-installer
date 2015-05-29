@@ -1,0 +1,43 @@
+label bmc
+    menu label Upgrade BMC to 1.06 : Upgrade BMC to 1.06
+    kernel memdisk
+    append initrd=pr2-reflash-bmc.img
+
+label bios1
+    menu label Reflash BIOS C1 : Reflash BIOS C1 and set BIOS options
+    kernel memdisk
+    append initrd=pr2-reflash-bios1.img
+
+label biosopt1
+    menu label Set BIOS C1 : Set BIOS options for C1
+    kernel memdisk
+    append initrd=pr2-reflash-biosopt1.img
+
+label biossave1
+    menu label Save BIOS C1 : Save BIOS options for C1
+    kernel memdisk
+    append initrd=pr2-reflash-saveopt1.img
+
+label bios2
+    menu label Reflash BIOS C2 : Reflash BIOS C2 and set BIOS options
+    kernel memdisk
+    append initrd=pr2-reflash-bios2.img
+
+label biosopt2
+    menu label Set BIOS C2 : Set BIOS options for C2
+    kernel memdisk
+    append initrd=pr2-reflash-biosopt2.img
+
+label biossave2
+    menu label Save BIOS C2 : Save BIOS options for C2
+    kernel memdisk
+    append initrd=pr2-reflash-saveopt2.img
+
+label prompt
+    menu label Prompt : Get to freedos prompt
+    kernel memdisk
+    append initrd=pr2-reflash-prompt.img
+
+label memtest
+    menu label memtest : run a memory test 
+    kernel memtest86+

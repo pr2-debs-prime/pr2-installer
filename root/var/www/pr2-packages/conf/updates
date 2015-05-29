@@ -1,0 +1,6 @@
+Name: pr2-release
+Method: http://packages.willowgarage.com/pr2-releases/pr2-0.6.1/ubuntu
+Components: main pr2 basestation multiverse restricted universe partner
+Architectures: amd64
+DownloadListsAs: .gz
+VerifyRelease: E01EA8E5D76E1418
