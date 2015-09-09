@@ -145,5 +145,5 @@ postfix postfix/mailname string robot
 #  installed until after pkgsel/include), then update apt sources
 d-i preseed/late_command string \
 	in-target apt-get install -y pr2-environment pr2-network pr2-kernel ; \
-	in-target sed -i.bak 's|deb http://10.68.0.6/pr2-packages precise main pr2 multiverse restricted universe partner||g;s|10.68.0.6/pr2-packages|aptproxy.willowgarage.com/us.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list ; \
+	in-target sed -i.bak 's|deb http://10.68.0.6/pr2-packages precise main pr2 multiverse restricted universe partner||g;s|10.68.0.6/pr2-packages|us.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list ; \
 	in-target bash -c 'echo "/dev/removable1 /removable      ext4    defaults,users,nobootwait           0  2" >> /etc/fstab'
