@@ -1,12 +1,12 @@
-Name: pr2-internal-release
-Method: http://dev-vm-packages-01/pr2-releases/pr2-0.6.2/ubuntu
+Name: pr2-release-internal
+Method: http://dev-vm-packages-01/pr2-release-internal/pr2-0.8.6/ubuntu
 Components: main pr2 basestation multiverse restricted universe partner
 Architectures: amd64
 DownloadListsAs: .gz
 #VerifyRelease: E01EA8E5D76E1418
 
-Name: pr2-internal-dev
-Method: http://dev-vm-pr2-releases/pr2packages/ubuntu
+Name: pr2-dev-internal
+Method: http://dev-vm-packages-01/pr2-dev-internal/ubuntu
 Components: main pr2 basestation multiverse restricted universe partner
 Architectures: amd64
 DownloadListsAs: .gz
