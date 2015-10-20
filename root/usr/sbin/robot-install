@@ -20,9 +20,24 @@ if __name__ == '__main__':
         print >> sys.stderr, "must be run as root"
         sys.exit(1)
 
+   arg = None
+   if len(sys.argv) > 1 and sys.argv[1]:
+       arg = sys.argv[1]
+       print "Installation mode: %s " % arg
+
+   if arg != "pr2-dev-internal" and arg != "pr2-dev-public" and arg != "pr2-release-internal" and arg != "pr2-release-public":
+       print """Error, no distribution specified for the robot installer. Please specify either: \n
+             1) pr2-dev-internal\n
+             2) pr2-dev-public\n
+             3) pr2-release-internal\n
+             4) pr2-release-public\n
+
+             \nFor example, sudo robot-install pr2-release-public """
+       sys.exit()
+
    link = InstallerLink()
 
-   subprocess.check_call(['reprepro', '--gnupghome', '/usr/lib/robot-install/keydir', '-V', '-b', '/var/www/pr2-packages', '--noskipold', 'update'])
+   subprocess.check_call(['reprepro', '--gnupghome', '/usr/lib/robot-install/keydir', '-V', '-b', '/var/www/pr2-packages', '--noskipold', 'update', arg])
    subprocess.check_call(['reprepro', '--gnupghome', '/usr/lib/robot-install/keydir', '-V', '-b', '/var/www/pr2-packages', 'export'])
 
    file = open('/var/log/syslog')
