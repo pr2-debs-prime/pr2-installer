@@ -1,37 +1,9 @@
-########################### CLEARPATH INTERNAL DISTRIBUTIONS OF PR2 SOFTWARE #######################
-Codename: pr2-dev-internal
+Codename: trusty
 Suite: trusty
 Architectures: amd64 source
 Description: Trusty (PR2 and Basestation debs)
 Components: main pr2 basestation multiverse restricted universe partner
 UDebComponents: main
-Update: pr2-dev-internal
+Update: pr2-release
 #SignWith: 324C3C1E
 
-Codename: pr2-release-internal
-Suite: trusty
-Architectures: amd64 source
-Description: Trusty (PR2 and Basestation debs)
-Components: main pr2 basestation multiverse restricted universe partner
-UDebComponents: main
-Update: pr2-release-internal
-#SignWith: 324C3C1E
-
-########################### PUBLIC DISTRIBUTIONS OF PR2 SOFTWARE #################################
-Codename: pr2-release-public
-Suite: trusty
-Architectures: amd64 source
-Description: Trusty (PR2 and Basestation debs)
-Components: main pr2 basestation multiverse restricted universe partner
-UDebComponents: main
-Update: pr2-release-public
-#SignWith: 324C3C1E
-
-Codename: pr2-dev-public
-Suite: trusty
-Architectures: amd64 source
-Description: Trusty (PR2 and Basestation debs)
-Components: main pr2 basestation multiverse restricted universe partner
-UDebComponents: main
-Update: pr2-dev-public
-#SignWith: 324C3C1E
