@@ -1,3 +1,11 @@
+########################### CLEARPATH INTERNAL DISTRIBUTIONS OF PR2 SOFTWARE ########################
+Name: pr2-dev-internal
+Method: http://dev-vm-packages-01/pr2-dev-internal/ubuntu
+Components: main pr2 basestation multiverse restricted universe partner
+Architectures: amd64
+DownloadListsAs: .gz
+#VerifyRelease: E01EA8E5D76E1418
+
 Name: pr2-release-internal
 Method: http://dev-vm-packages-01/pr2-release-internal/pr2-0.8.6/ubuntu
 Components: main pr2 basestation multiverse restricted universe partner
@@ -5,8 +13,16 @@ Architectures: amd64
 DownloadListsAs: .gz
 #VerifyRelease: E01EA8E5D76E1418
 
-Name: pr2-dev-internal
-Method: http://dev-vm-packages-01/pr2-dev-internal/ubuntu
+########################### PUBLIC DISTRIBUTIONS OF PR2 SOFTWARE #####################################
+Name: pr2-dev-public
+Method: http://pr2packages.clearpathrobotics.com/pr2-dev-public/ubuntu
+Components: main pr2 basestation multiverse restricted universe partner
+Architectures: amd64
+DownloadListsAs: .gz
+#VerifyRelease: E01EA8E5D76E1418
+
+Name: pr2-release-public
+Method: http://pr2packages.clearpathrobotics.com/pr2-release-public/pr2-0.8.6/ubuntu
 Components: main pr2 basestation multiverse restricted universe partner
 Architectures: amd64
 DownloadListsAs: .gz
