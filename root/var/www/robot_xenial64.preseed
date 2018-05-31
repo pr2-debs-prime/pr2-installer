@@ -1,6 +1,6 @@
 
 # Load in our modified keyring
-d-i preseed/early_command string wget -O /tmp/keyring.deb http://10.68.0.6/pr2-packages/pool/main/u/ubuntu-keyring/ubuntu-keyring_2015.07.07-pr2-trusty_all.deb && udpkg -i /tmp/keyring.deb && anna-install network-console
+d-i preseed/early_command string wget -O /tmp/keyring.deb http://10.68.0.6/pr2-packages/pool/main/u/ubuntu-keyring/ubuntu-keyring_2015.07.07-pr2-xenial_all.deb && udpkg -i /tmp/keyring.deb && anna-install network-console
 
 # Choose software to install:
 tasksel tasksel/first   multiselect     linux-server
@@ -15,7 +15,7 @@ d-i     mirror/http/hostname    string 10.68.0.6
 # under the webroot of your HTTP server
 d-i     mirror/http/directory   string /pr2-packages
 # Name your ubuntu version here
-d-i     mirror/suite            string trusty
+d-i     mirror/suite            string xenial
 # no proxy
 d-i     mirror/http/proxy       string
 
@@ -122,7 +122,7 @@ d-i apt-setup/backports boolean true
 d-i apt-setup/security_host string
 
 d-i apt-setup/local0/repository string \
-  http://10.68.0.6/pr2-packages trusty main pr2 multiverse restricted universe partner
+  http://10.68.0.6/pr2-packages xenial main pr2 multiverse restricted universe partner
 
 hddtemp hddtemp/interface       string  127.0.0.1
 hddtemp hddtemp/daemon  boolean true
@@ -145,5 +145,5 @@ postfix postfix/mailname string robot
 #  installed until after pkgsel/include), then update apt sources
 d-i preseed/late_command string \
 	in-target apt-get install -y pr2-environment pr2-network pr2-kernel ; \
-	in-target sed -i.bak 's|deb http://10.68.0.6/pr2-packages trusty main pr2 multiverse restricted universe partner||g;s|10.68.0.6/pr2-packages|us.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list ; \
+	in-target sed -i.bak 's|deb http://10.68.0.6/pr2-packages xenial main pr2 multiverse restricted universe partner||g;s|10.68.0.6/pr2-packages|us.archive.ubuntu.com/ubuntu|g' /etc/apt/sources.list ; \
 	in-target bash -c 'echo "/dev/removable1 /removable      ext4    defaults,users,nobootwait           0  2" >> /etc/fstab'

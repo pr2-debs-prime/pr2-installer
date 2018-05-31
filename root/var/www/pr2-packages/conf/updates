@@ -1,6 +1,6 @@
 ########################### CLEARPATH INTERNAL DISTRIBUTIONS OF PR2 SOFTWARE ########################
 Name: pr2-release
-Method: http://dev-vm-packages-01/pr2-dev-internal/ubuntu
+Method: http://apt.cse.unr.edu/pr2
 Components: main pr2 basestation multiverse restricted universe partner
 Architectures: amd64
 DownloadListsAs: .gz

@@ -14,7 +14,7 @@ case "$1" in
 
         ln -s /var/www/pr2-packages /var/www/html/pr2-packages
         ln -s /var/www/index.html /var/www/html/index.html
-        ln -s /var/www/robot_trusty64.preseed /var/www/html/robot_trusty64.preseed
+        ln -s /var/www/robot_xenial64.preseed /var/www/html/robot_xenial64.preseed
 
     ;;
   

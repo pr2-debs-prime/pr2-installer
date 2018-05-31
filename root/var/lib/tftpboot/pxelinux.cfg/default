@@ -27,10 +27,10 @@ label biosbmc2
     kernel memdisk
     append initrd=pr2-reflash-biosbmc2.img
 
-label robot_precise64
-    menu label OS Install : wipe hard drive and install 64-bit precise for robot
+label robot_xenial64
+    menu label OS Install : wipe hard drive and install 64-bit xenial for robot
     kernel linux64
-    append interface=eth3 initrd=initrd64.gz auto url=http://10.68.0.6/robot_precise64.preseed locale=en_US.UTF-8 debian-installer/keymap=us netcfg/disable_autoconfig=true netcfg/disable_dhcp=true netcfg/get_hostname=c1 netcfg/get_domain=willowgarage.com netcfg/get_nameservers=10.68.0.6 netcfg/get_ipaddress=10.68.0.1 netcfg/get_netmask=255.255.255.0 netcfg/get_gateway=10.68.0.6 netcfg/confirm_static=true root=/dev/rd/0 numa=noacpi --
+    append interface=eth3 initrd=initrd64.gz auto url=http://10.68.0.6/robot_xenial64.preseed locale=en_US.UTF-8 debian-installer/keymap=us netcfg/disable_autoconfig=true netcfg/disable_dhcp=true netcfg/get_hostname=c1 netcfg/get_domain=willowgarage.com netcfg/get_nameservers=10.68.0.6 netcfg/get_ipaddress=10.68.0.1 netcfg/get_netmask=255.255.255.0 netcfg/get_gateway=10.68.0.6 netcfg/confirm_static=true root=/dev/rd/0 numa=noacpi --
 
 label advanced
     menu label Adanced Config : Go to advanced config sub-menu

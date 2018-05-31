@@ -1,7 +1,7 @@
-Codename: trusty
-Suite: trusty
+Codename: xenial
+Suite: xenial
 Architectures: amd64 source
-Description: Trusty (PR2 and Basestation debs)
+Description: Xenial (PR2 and Basestation debs)
 Components: main pr2 basestation multiverse restricted universe partner
 UDebComponents: main
 Update: pr2-release
