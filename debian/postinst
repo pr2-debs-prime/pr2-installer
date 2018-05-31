@@ -13,6 +13,7 @@ case "$1" in
         gpg -q --homedir /usr/lib/robot-install/keydir --import /usr/lib/robot-install/basestationpackages.gpg || :
 
         ln -s /var/www/pr2-packages /var/www/html/pr2-packages
+        rm /var/www/html/index.html
         ln -s /var/www/index.html /var/www/html/index.html
         ln -s /var/www/robot_xenial64.preseed /var/www/html/robot_xenial64.preseed
 
